@@ -58,6 +58,7 @@ function loadNotes() {
       notesList.appendChild(noteElement);
     });
   }
+  getNotesFromStorage(); // added this line to refresh notes from storage
 }
 
 function addNoteButtonHandler() {
@@ -66,6 +67,7 @@ function addNoteButtonHandler() {
   if (noteText) {
     addNote(noteText);
     addNoteInput.value = '';
+    loadNotes(); // added this line to refresh the notes list
   }
 }
 
