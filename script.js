@@ -4,6 +4,8 @@ function getNotesFromStorage() {
   const storedNotes = localStorage.getItem('notes');
   if (storedNotes) {
     notes = JSON.parse(storedNotes);
+  } else {
+    notes = [];
   }
 }
 
@@ -14,22 +16,25 @@ function saveNotesToStorage() {
 function addNote(note) {
   notes.push(note);
   saveNotesToStorage();
+  loadNotes();
 }
 
 function removeNote(index) {
   notes.splice(index, 1);
   saveNotesToStorage();
+  loadNotes();
 }
 
 function updateNote(index, newNote) {
   notes[index] = newNote;
   saveNotesToStorage();
+  loadNotes();
 }
 
 function loadNotes() {
   getNotesFromStorage();
   const notesList = document.getElementById('notes-list');
-  if (notesList) { // Check if notesList is not null
+  if (notesList) { 
     notesList.innerHTML = '';
     notes.forEach((note, index) => {
       const noteElement = document.createElement('li');
@@ -62,13 +67,12 @@ function addNoteButtonHandler() {
     addNote(noteText);
     addNoteInput.value = '';
   }
-  loadNotes();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   getNotesFromStorage();
   const addNoteButton = document.getElementById('add-note-button');
-  if (addNoteButton) { // Check if addNoteButton is not null
+  if (addNoteButton) { 
     addNoteButton.addEventListener('click', addNoteButtonHandler);
   }
   loadNotes();
