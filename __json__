@@ -1,0 +1,18 @@
+{
+    "index.html": {
+        "description": "Main entry point of the notes application, containing the user interface built using HTML and CSS."
+    },
+    "styles.css": {
+        "description": "CSS styles for the application's user interface."
+    },
+    "script.js": {
+        "description": "JavaScript logic for note management and storage in the browser's storage.",
+        "dependencies": {}
+    },
+    "README.md": {
+        "description": "README with basic documentation and 'how to run' guide"
+    },
+    ".gitignore": {
+        "description": ".gitignore with node-modules and cache files"
+    }
+}
